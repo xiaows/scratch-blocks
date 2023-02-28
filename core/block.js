@@ -1252,6 +1252,8 @@ Blockly.Block.prototype.appendDummyInput = function(opt_name) {
  * @param {!Object} json Structured data describing the block.
  */
 Blockly.Block.prototype.jsonInit = function(json) {
+  // console.log(json);
+  // console.log(this.workspace.options);
   var warningPrefix = json['type'] ? 'Block "' + json['type'] + '": ' : '';
 
   // Validate inputs.
@@ -1320,8 +1322,8 @@ Blockly.Block.prototype.jsonInit = function(json) {
   if (json['outputShape'] !== undefined) {
     this.setOutputShape(json['outputShape']);
   }
-  if (json['checkboxInFlyout'] !== undefined) {
-    this.setCheckboxInFlyout(json['checkboxInFlyout']);
+  if(this.workspace.options.editTaskMode == true){
+    this.setCheckboxInFlyout(true);
   }
   if (json['category'] !== undefined) {
     this.setCategory(json['category']);

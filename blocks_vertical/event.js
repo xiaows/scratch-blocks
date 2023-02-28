@@ -176,16 +176,8 @@ Blockly.Blocks['event_whengreaterthan'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": Blockly.Msg.EVENT_WHENGREATERTHAN,
+      "message0": '当素材 %1 被点击时',
       "args0": [
-        {
-          "type": "field_dropdown",
-          "name": "WHENGREATERTHANMENU",
-          "options": [
-            [Blockly.Msg.EVENT_WHENGREATERTHAN_LOUDNESS, 'LOUDNESS'],
-            [Blockly.Msg.EVENT_WHENGREATERTHAN_TIMER, 'TIMER']
-          ]
-        },
         {
           "type": "input_value",
           "name": "VALUE"

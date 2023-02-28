@@ -162,7 +162,8 @@ Blockly.Toolbox.prototype.createFlyout_ = function() {
     oneBasedIndex: workspace.options.oneBasedIndex,
     horizontalLayout: workspace.horizontalLayout,
     toolboxPosition: workspace.options.toolboxPosition,
-    stackGlowFilterId: workspace.options.stackGlowFilterId
+    stackGlowFilterId: workspace.options.stackGlowFilterId,
+    editTaskMode:  workspace.options.editTaskMode,
   };
 
   if (workspace.horizontalLayout) {
@@ -604,6 +605,7 @@ Blockly.Toolbox.CategoryMenu.prototype.createDom = function() {
  * @param {Node} domTree DOM tree of blocks, or null.
  */
 Blockly.Toolbox.CategoryMenu.prototype.populate = function(domTree) {
+  console.log(domTree);
   if (!domTree) {
     return;
   }
@@ -714,6 +716,10 @@ Blockly.Toolbox.Category.prototype.createDom = function() {
   this.label_ = goog.dom.createDom('div',
       {'class': 'scratchCategoryMenuItemLabel'},
       Blockly.utils.replaceMessageReferences(this.name_));
+  this.count_ = goog.dom.createDom('div',
+      {'class': 'scratchCategoryMenuItemCount', 'id': Blockly.utils.replaceMessageReferences(this.name_)},
+      '');
+      
   if (this.iconURI_) {
     this.bubble_ = goog.dom.createDom('div',
         {'class': 'scratchCategoryItemIcon'});
@@ -726,6 +732,7 @@ Blockly.Toolbox.Category.prototype.createDom = function() {
   }
   this.item_.appendChild(this.bubble_);
   this.item_.appendChild(this.label_);
+  this.item_.appendChild(this.count_);
   this.parentHtml_.appendChild(this.item_);
   Blockly.bindEvent_(
       this.item_, 'mouseup', toolbox, toolbox.setSelectedItemFactory(this));

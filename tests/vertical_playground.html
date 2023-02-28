@@ -70,6 +70,7 @@
 
         // Create main workspace.
         workspace = Blockly.inject('blocklyDiv', {
+          editTaskMode: true,
           comments: true,
           disable: false,
           collapse: false,
@@ -180,9 +181,27 @@
           flyoutWorkspace.removeChangeListener(logger);
         }
       }
-
+      const motion = new Map();
       function logger(e) {
         console.log(e);
+        if(e.blockId){
+          const category = e.blockId.split('_')[0];
+          const categoryCapitalized = category.charAt(0).toUpperCase() + category.slice(1)
+          if(categoryCapitalized === 'Motion' && e.newValue === true){
+            motion.set(e.blockId, e.newValue);
+            const countBox = document.getElementById('Motion')
+            countBox.innerText = motion.size
+            console.log(countBox.innerText)
+          }else if(categoryCapitalized === 'Motion' && e.newValue === false){
+            motion.delete(e.blockId, e.newValue);
+            const countBox = document.getElementById('Motion')
+            countBox.innerText = motion.size || ''
+            console.log(countBox.innerText)
+          }
+          
+          // console.log(categoryCapitalized)
+        }
+
       }
 
       function glowBlock() {

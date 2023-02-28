@@ -44,6 +44,7 @@ goog.require('goog.dom');
  * @return {!Element} XML document.
  */
 Blockly.Xml.workspaceToDom = function(workspace, opt_noId) {
+  console.log(workspace);
   var xml = goog.dom.createDom('xml');
   xml.appendChild(Blockly.Xml.variablesToDom(workspace.getAllVariables()));
   var comments = workspace.getTopComments(true).filter(function(topComment) {
@@ -53,7 +54,9 @@ Blockly.Xml.workspaceToDom = function(workspace, opt_noId) {
     xml.appendChild(comment.toXmlWithXY(opt_noId));
   }
   var blocks = workspace.getTopBlocks(true);
+  console.log(blocks);
   for (var i = 0, block; block = blocks[i]; i++) {
+    console.log(block);
     xml.appendChild(Blockly.Xml.blockToDomWithXY(block, opt_noId));
   }
   return xml;

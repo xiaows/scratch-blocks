@@ -37,6 +37,7 @@ goog.require('Blockly.Colours');
  */
 Blockly.Options = function(options) {
   var readOnly = !!options['readOnly'];
+  var editTaskMode = !!options['editTaskMode'];
   if (readOnly) {
     var languageTree = null;
     var hasCategories = false;
@@ -124,6 +125,7 @@ Blockly.Options = function(options) {
   this.comments = hasComments;
   this.disable = hasDisable;
   this.readOnly = readOnly;
+  this.editTaskMode = editTaskMode;
   this.pathToMedia = pathToMedia;
   this.hasCategories = hasCategories;
   this.hasScrollbars = hasScrollbars;

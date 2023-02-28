@@ -1318,6 +1318,7 @@ Blockly.Css.CONTENT = [
     'padding: 0.375rem 0px;',
     'cursor: pointer;',
     'text-align: center;',
+    'position: relative;',
   '}',
 
   '.scratchCategoryMenuHorizontal .scratchCategoryMenuItem {',
@@ -1334,6 +1335,12 @@ Blockly.Css.CONTENT = [
     'border: 1px solid;',
     'border-radius: 100%;',
     'margin: 0 auto 0.125rem;',
+  '}',
+
+  '.scratchCategoryMenuItemCount {',
+    'position: absolute;',
+    'right: 5px;',
+    'top: 36%;',
   '}',
 
   '.scratchCategoryItemIcon {',

@@ -33,8 +33,9 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
     '<block type="motion_movesteps" id="motion_movesteps">' +
       '<value name="STEPS">' +
         '<shadow type="math_number">' +
-          '<field name="NUM">10</field>' +
+          '<field name="NUM"></field>' +
         '</shadow>' +
+        '<block type="sensing_mousex" id="b*.Ee1W~Lc_3%A|2rb{o"></block>' +
       '</value>' +
     '</block>' +
     '<block type="motion_turnright" id="motion_turnright">' +
@@ -260,6 +261,9 @@ Blockly.Blocks.defaultToolbox = '<xml id="toolbox-categories" style="display: no
         '<shadow type="math_number">' +
           '<field name="NUM">10</field>' +
         '</shadow>' +
+        '<block type="looks_costumenumbername" id="X}c{n7oOd9/h5,yguC?Y">' +
+          '<field name="NUMBER_NAME">number</field>' +
+        '</block>' +
       '</value>' +
     '</block>' +
     '<block type="event_whenbroadcastreceived" id="event_whenbroadcastreceived">' +
